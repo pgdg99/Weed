@@ -1,7 +1,7 @@
 /*
  * Clase que permite especificar un Icono para un Thing o Robot determinado.
  */
-package weed;
+package lab2.punto1.modelo;
 import becker.robots.icons.Icon;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;

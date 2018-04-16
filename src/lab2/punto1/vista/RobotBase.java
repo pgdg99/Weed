@@ -1,6 +1,7 @@
-package weed;
+package lab2.punto1.vista;
 
 import becker.robots.*;
+import lab2.punto1.modelo.*;
 
 /** 
  * Practica de los conceptos de Programacion Estructurada
@@ -10,27 +11,33 @@ public class RobotBase
        //Declaracion de Variables -- Forma temporal - No es buena practica tener
        //variables estaticas
         public static City objetos;
-        public static Robot estudiante;
+        public static Sembrador drone1;
         
 	public static void main (String[] args) throws InterruptedException{
             //Declarar la creacion de la ciudad
             objetos = new City("Field.txt");
             objetos.showThingCounts(true);
             
+            
+            
             //Direction.NORTH, EAST, SOUTH, WEST
             //Definicion de la ubicacion del robot, Ciudad, posicion, Direccion, Numero things en el bolso.
-            estudiante = new Drone(objetos,0, 2, Direction.EAST,10);
-            Weed flor = new Weed(objetos, 0, 3);
+            //drone1 = new Sembrador(20, 30, objetos, 1, 1, Direction.EAST, 100);
+            Weed flor = new Weed(14.1, 20.5, 15, objetos, 10, 5);
             Semaforo semaforo = new Semaforo(objetos, 0, 6);
 	    //Mover una interseccion en el sentido al cual este apuntando el objeto.
-            estudiante.move ();
-            
-            Thing t = estudiante.examineThings(new WeedPred()).next();
+            drone1.move ();
+            System.out.println(drone1.getSpeed());
+            drone1.setSpeed(5.0);
+            drone1.move ();
+
+            Thing t = drone1.examineThings(new WeedPred()).next();
             if(t instanceof Weed){
-               estudiante.pickThing();
+               drone1.pickThing();
+                
             }
             
-            estudiante.move();
+            drone1.move();
             semaforo.cambiarEstado();
             Thread.sleep(500);
             semaforo.cambiarEstado();
@@ -41,7 +48,7 @@ public class RobotBase
         
         public static void creacionFuncion(int parametroEntrada){
             for (int i = 0; i < parametroEntrada; i++) 
-                estudiante.move();
+                drone1.move();
         }
 }
 

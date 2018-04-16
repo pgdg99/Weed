@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package weed;
+package lab2.punto1.modelo;
 
 import becker.robots.City;
 import becker.robots.Thing;
