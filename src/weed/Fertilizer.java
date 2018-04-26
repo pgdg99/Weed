@@ -8,11 +8,14 @@ public class Fertilizer extends Drone {
     private int seeds;
     private int fert;
 
-    public Fertilizer(int seeds, int fert, City city, int i, int i1, Direction drctn, int b, RechargeStation charge) {
-        super(city, i, i1, drctn, b,charge);
+    public Fertilizer(City city, int x, int y, Direction dir, int bat, RechargeStation charge, int seeds, int fert) {
+        super(city, x, y, dir, bat,charge);
         this.seeds = seeds;
         this.fert = fert;
     }
     
-    
+    public void plant (int x, int y, double humidity, double temperature, int fert){
+        this.moveTo(x, y);
+        
+    }
 }
